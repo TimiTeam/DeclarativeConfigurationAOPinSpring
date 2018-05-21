@@ -2,13 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Add namespace AOP-->
     <aop:config>
         <aop:pointcut id="fooExecution"
                       expression="execution(* com.apress.prospring4.ch5..foo*(int))"/>
+        <!-- This an expression is means that all methods with prefix 'foo' in classes in this package
+        it is necessary to provide an advice -->
         <aop:aspect ref="advice">
+            <!-- An aspect  with reference to the class of advice -->
             <aop:before pointcut-ref="fooExecution"
                     method="simpleBeforeAdvice"/>
         </aop:aspect>
