@@ -24,7 +24,7 @@
         </aop:aspect>
     </aop:config>
 
-    <bean id="advice" class="com.apress.prospring4.ch5.Advice.MyAdvice"/>
+    <bean id="advice" class="com.apress.prospring4.ch5.advice.MyAdvice"/>
 
     <bean id="myDependency" class="com.apress.prospring4.ch5.classes.MyDependency"/>
 

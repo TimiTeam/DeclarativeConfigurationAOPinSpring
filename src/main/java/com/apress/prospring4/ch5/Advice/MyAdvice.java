@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch5.Advice;
+package com.apress.prospring4.ch5.advice;
 
 
 import org.aspectj.lang.JoinPoint;
