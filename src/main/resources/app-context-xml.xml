@@ -18,6 +18,9 @@
             <!-- An aspect  with reference to the class of advice -->
             <aop:before pointcut-ref="fooExecution"
                         method="simpleBeforeAdvice"/>
+            <!-- Descriptor '<aop:around' to declare an advice around :)-->
+            <aop:around pointcut-ref="fooExecution"
+                    method="simpleAroundAdvice"/>
         </aop:aspect>
     </aop:config>
 

@@ -2,6 +2,7 @@ package com.apress.prospring4.ch5.Advice;
 
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 
 public class MyAdvice {
 //    If we using namespace aop, we don't need interface 'MethodBeforeAdvice'
@@ -13,5 +14,17 @@ public class MyAdvice {
             System.out.println("Executing: " + joinPoint.getSignature().getDeclaringTypeName() + " "
                     + joinPoint.getSignature().getName() + ", argument: " + intValue);
         }
+    }
+
+    public Object simpleAroundAdvice(ProceedingJoinPoint joinPoint, int intValue) throws Throwable {
+        System.out.println("Before executing: " + joinPoint.getSignature().getDeclaringTypeName() + " "
+                + joinPoint.getSignature().getName() + ", argument: " + intValue);
+
+        Object returnObject = joinPoint.proceed();
+
+        System.out.println("After executing: " + joinPoint.getSignature().getDeclaringTypeName() + " "
+                + joinPoint.getSignature().getName() + ", argument: " + intValue);
+
+        return returnObject;
     }
 }
